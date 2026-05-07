@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>FitLife — Your Fitness Hub</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ===== NAVBAR ===== -->
+<nav id="navbar">
+  <div class="nav-inner">
+    <a class="logo" href="#"><span>FIT</span>LIFE</a>
+
+    <ul class="nav-links" id="nav-links">
+      <li><a href="#" class="nav-link active">Home</a></li>
+      <li>
+        <a href="#" class="nav-link dropdown-toggle" id="programs-toggle">Programs</a>
+        <ul class="dropdown-menu" id="programs-dropdown">
+          <li><a href="#" class="nav-link">Strength Training</a></li>
+          <li><a href="#" class="nav-link">Cardio & HIIT</a></li>
+          <li><a href="#" class="nav-link">Yoga & Flexibility</a></li>
+          <li><a href="#" class="nav-link">Sports Drills</a></li>
+        </ul>
+      </li>
+      <li><a href="#" class="nav-link">Nutrition</a></li>
+      <li><a href="#" class="nav-link">Community</a></li>
+      <li><a href="#" class="nav-link">Progress</a></li>
+    </ul>
+
+    <div class="nav-right">
+      <button class="btn-theme" id="theme-toggle" title="Toggle Dark/Light Mode">🌙</button>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile menu -->
+  <div class="mobile-menu" id="mobile-menu">
+    <a href="#" class="nav-link">Home</a>
+    <a href="#" class="nav-link ">Programs</a>
+    <a href="#" class="nav-link">— Strength Training</a>
+    <a href="#" class="nav-link">— Cardio & HIIT</a>
+    <a href="#" class="nav-link">— Yoga & Flexibility</a>
+    <a href="#" class="nav-link">— Sports Drills</a>
+    <a href="#" class="nav-link">Nutrition</a>
+    <a href="#" class="nav-link">Community</a>
+    <a href="#" class="nav-link">Progress</a>
+  </div>
+</nav>
+
+<!-- ===== MAIN ===== -->
+<main>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div>
+      <h1>TRAIN HARD.<br>LIVE FIT.</h1>
+      <p>Your all-in-one fitness hub for workouts, sports activities, and a healthier lifestyle.</p>
+      <div class="hero-btns">
+        <button class="btn-primary" id="hero-start-btn">Get Started</button>
+        <button class="btn-secondary" id="hero-explore-btn">Explore Activities</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- TEXT MANIPULATION -->
+  <section>
+    <p class="section-label">Daily Motivation</p>
+    <p class="section-sub">Get your daily dose of fitness inspiration</p>
+    <hr class="divider"/>
+    <div class="text-box">
+      <p id="motivation-text">"The only bad workout is the one that didn't happen. Lace up and go!"</p>
+      <div class="btn-row">
+        <button class="btn-blue" id="btn-new-quote">New Quote</button>
+        <button class="btn-outline" id="btn-reset-quote">Reset</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- INPUT & DISPLAY -->
+  <section>
+    <p class="section-label">Set Your Goal</p>
+    <p class="section-sub">Enter your fitness goal for today and keep it visible</p>
+    <hr class="divider"/>
+    <div class="input-section">
+      <div class="input-row">
+        <input type="text" class="field" id="goal-input" placeholder="e.g. Run 5km, do 50 pushups..." maxlength="80"/>
+        <button class="btn-blue" id="btn-set-goal">Set Goal</button>
+        <button class="btn-outline" id="btn-clear-goal">Clear</button>
+      </div>
+      <div id="display-output"></div>
+    </div>
+  </section>
+
+  <!-- DYNAMIC LIST -->
+  <section>
+    <p class="section-label">My Workout List</p>
+    <p class="section-sub">Add activities to your list. Click any item to remove it.</p>
+    <hr class="divider"/>
+    <div class="list-section">
+      <div class="search-row">
+        <input type="text" class="field" id="search-input" placeholder="🔍 Search your list..."/>
+        <input type="text" class="field" id="list-input" placeholder="Add an activity..."/>
+        <button class="btn-blue" id="btn-add-item">Add</button>
+      </div>
+      <ul id="activity-list">
+        <li data-value="Morning run 5km">Morning run 5km <span class="remove-hint">click to remove</span></li>
+        <li data-value="Push-ups × 3 sets">Push-ups × 3 sets <span class="remove-hint">click to remove</span></li>
+        <li data-value="Yoga stretching">Yoga stretching <span class="remove-hint">click to remove</span></li>
+      </ul>
+      <p id="list-empty" style="display:none">No items match your search.</p>
+    </div>
+  </section>
+
+  <!-- ACTIVITY CARDS -->
+  <section>
+    <p class="section-label">Explore Activities</p>
+    <p class="section-sub">Pick activities to add to your workout list</p>
+    <hr class="divider"/>
+    <div class="cards-grid" id="cards-grid">
+
+      <div class="card">
+        <span class="card-tag">Strength</span>
+        <p class="card-title">Weight Training</p>
+        <p class="card-desc">Build muscle and increase strength with compound lifts like squats, deadlifts, and bench press.</p>
+        <button class="btn-card" data-activity="Weight Training ">+ Add to List</button>
+      </div>
+
+      <div class="card">
+        <span class="card-tag">Flexibility</span>
+        <p class="card-title">Yoga Session</p>
+        <p class="card-desc">Improve flexibility, reduce stress, and strengthen your core with a guided yoga routine.</p>
+        <button class="btn-card" data-activity="Yoga Session ">+ Add to List</button>
+      </div>
+
+      <div class="card">
+        <span class="card-tag">Full Body</span>
+        <p class="card-title">Swimming</p>
+        <p class="card-desc">The ultimate full-body workout. Easy on the joints and great for both cardio and muscle toning.</p>
+        <button class="btn-card" data-activity="Swimming ">+ Add to List</button>
+      </div>
+
+      <div class="card">
+        <span class="card-tag">Sport</span>
+        <p class="card-title">Basketball</p>
+        <p class="card-desc">Shoot hoops, work on layups and three-pointers. Great for agility, teamwork, and reaction time.</p>
+        <button class="btn-card" data-activity="Basketball ">+ Add to List</button>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SELECTED ACTIVITIES -->
+  <section>
+    <p class="section-label">Selected Activities</p>
+    <p class="section-sub">Activities you've added from the cards above</p>
+    <hr class="divider"/>
+    <div class="selected-section">
+      <div id="selected-list">
+        <span id="selected-empty">No activities selected yet. Click "+ Add to List" on any card above!</span>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <p><strong>FITLIFE</strong></p>
+    <p style="margin-top:0.4rem">Built by Umutoni Nada. 2026 &nbsp;·&nbsp; DOM Manipulation Practice</p>
+    <p style="margin-top:0.3rem; font-size:0.82rem">© 2026 FitLife · All rights reserved</p>
+  </div>
+</footer>
+
+<!-- TOAST -->
+<div id="toast"></div>
+
+<!--js document-->
+<script src="script.js"></script>
+</body>
+</html>
